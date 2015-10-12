@@ -81,5 +81,5 @@ test:
 production:
   <<: *default
   database: abweibo_production
-  username: ABWeibo
+  username: root
   password: <%= ENV['ABWEIBO_DATABASE_PASSWORD'] %>
