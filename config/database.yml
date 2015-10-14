@@ -20,6 +20,7 @@ default: &default
   # For details on connection pooling, see rails configuration guide
   # http://guides.rubyonrails.org/configuring.html#database-pooling
   pool: 5
+  host: 'localhost'
 
 development:
   <<: *default
@@ -80,7 +81,7 @@ test:
 #
 production:
   <<: *default
-  host: localhost
+  host: '172.17.42.1'
   database: abweibo_production
   username: root
   password: <%= ENV['ABWEIBO_DATABASE_PASSWORD'] %>
