@@ -80,6 +80,7 @@ test:
 #
 production:
   <<: *default
+  host: localhost
   database: abweibo_production
   username: root
   password: <%= ENV['ABWEIBO_DATABASE_PASSWORD'] %>
