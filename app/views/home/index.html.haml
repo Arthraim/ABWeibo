@@ -1,1 +1,6 @@
-Ahaha
+-if session[:login_user]
+  =session[:login_user]
+  =link_to '登出', '/sessions/destroy'
+-else
+  =link_to '微博登入', '/sessions/weibo_create'
+

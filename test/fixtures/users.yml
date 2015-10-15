@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  wb_uid: MyString
+  wb_token: MyString
+  wb_expires_in: 1
+  wb_expires_at: 1
+  wb_refresh_token: MyString
+
+two:
+  wb_uid: MyString
+  wb_token: MyString
+  wb_expires_in: 1
+  wb_expires_at: 1
+  wb_refresh_token: MyString

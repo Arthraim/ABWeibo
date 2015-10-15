@@ -4,7 +4,11 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'home#index'
-
+  namespace :sessions do
+    get 'weibo_create'
+    get 'weibo_callback'
+    get 'destroy'
+  end
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
