@@ -1,6 +1,18 @@
 -if session[:login_user]
-  =session[:login_user]
+  :plain
+    <!--
+  =session[:login_user].to_yaml
+  :plain
+    -->
   =link_to '登出', '/sessions/destroy'
+  %div
+    %p
+      输入你要关注的微博 ID（个人页的 http://weibo.com/u/1644773785 地址后面这串数字）
+  %div
+    -#=form_tag('/targets/create') do
+    -#  =text_field_tag 'wb_uid'
+    -#  =submit_tag '确认无误，提交'
+    = render 'targets/form'
 -else
   =link_to '微博登入', '/sessions/weibo_create'
 

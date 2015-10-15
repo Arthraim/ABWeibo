@@ -1,0 +1,10 @@
+%p#notice= notice
+
+%p
+  %b 微博 ID:
+  = @target.wb_uid
+  %b 已被加入队列，请等待
+
+-#= link_to 'Edit', edit_target_path(@target)
+= link_to '返回', root_path
+
