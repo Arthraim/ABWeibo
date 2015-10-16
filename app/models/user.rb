@@ -1,4 +1,7 @@
 class User < ActiveRecord::Base
+
+  has_one :target
+
   class << self
     def signup_with_weibo_token token
       User.find_or_create_by(wb_uid: token.params['uid']) do |u|

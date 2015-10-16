@@ -15,6 +15,7 @@ class TargetsController < ApplicationController
   # GET /targets/new
   def new
     @target = Target.new
+    @target.user_id = session[:login_user][:id]
   end
 
   # GET /targets/1/edit
@@ -69,6 +70,6 @@ class TargetsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def target_params
-      params.require(:target).permit(:wb_uid)
+      params.require(:target).permit(:wb_uid, :user_id)
     end
 end
