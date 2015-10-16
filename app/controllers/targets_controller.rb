@@ -15,7 +15,7 @@ class TargetsController < ApplicationController
   # GET /targets/new
   def new
     @target = Target.new
-    @target.user_id = session[:login_user][:id]
+    @target.user_id = session[:login_user_id]
   end
 
   # GET /targets/1/edit
@@ -25,6 +25,14 @@ class TargetsController < ApplicationController
   # POST /targets
   # POST /targets.json
   def create
+    login_user = User.find(session[:login_user_id])
+    if login_user.target.present?
+      return respond_to do |format|
+        format.html { redirect_to login_user.target, notice: "你只能关注一个人，你已经关注了#{login_user.target.wb_uid}了" }
+        format.json { render json: @target.errors, status: :bad_request }
+      end
+    end
+
     @target = Target.new(target_params)
 
     respond_to do |format|

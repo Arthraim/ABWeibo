@@ -1,7 +1,7 @@
--if session[:login_user]
+-if session[:login_user_id]
   :plain
     <!--
-  =session[:login_user].to_yaml
+  =session[:login_user_id].to_yaml
   :plain
     -->
   =link_to '登出', '/sessions/destroy'
