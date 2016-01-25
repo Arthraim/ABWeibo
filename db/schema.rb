@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(version: 20160125100007) do
     t.string   "wb_sid"
     t.string   "wb_uid"
     t.datetime "posted_at"
-    t.jsonb    "raw",       default: {}
+    t.json     "raw",       default: {}
   end
 
   create_table "targets", force: :cascade do |t|

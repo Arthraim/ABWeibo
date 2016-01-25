@@ -4,7 +4,7 @@ class CreateStatus < ActiveRecord::Migration
       t.string :wb_sid
       t.string :wb_uid
       t.datetime :posted_at
-      t.jsonb :raw, default: '{}'
+      t.json :raw, default: '{}'
     end
   end
 
