@@ -11,10 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151016070641) do
+ActiveRecord::Schema.define(version: 20160125100007) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "statuses", force: :cascade do |t|
+    t.string   "wb_sid"
+    t.string   "wb_uid"
+    t.datetime "posted_at"
+    t.jsonb    "raw",       default: {}
+  end
 
   create_table "targets", force: :cascade do |t|
     t.string   "wb_uid"

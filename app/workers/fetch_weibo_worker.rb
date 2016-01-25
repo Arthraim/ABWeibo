@@ -12,11 +12,13 @@ class FetchWeiboWorker
     resp = client.statuses.home_timeline access_token: target.user.wb_token, count: 100, trim_user: 1
     # see doc for meaning of params: http://open.weibo.com/wiki/2/statuses/home_timeline
     return unless resp.present? && resp.statuses.present?
-    resp.statuses.inject(Array.new) do |array, status|
+    resp.statuses.each do |status|
       if status.uid.to_s == target.wb_uid
-        array.push({ id: status.id, text: status.text })
-      else
-        array
+        Status.find_or_initialize_by(wb_sid: status.id) do |s|
+          s.wb_uid = status.uid
+          s.posted_at = status.created_at.to_datetime
+          s.raw = status.to_json
+        end.save
       end
     end
   end
