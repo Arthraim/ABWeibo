@@ -3,8 +3,10 @@
 %p
   %b 微博 ID:
   = @target.wb_uid
-  %b 已被加入队列，点击返回，会在一分钟左右后完成第一次数据抓取
+  %b 已被加入队列，如果第一次关注，会在点击返回后一分钟左右后完成第一次数据抓取
 
 -#= link_to 'Edit', edit_target_path(@target)
 = link_to '返回', root_path
 
+%hr
+= link_to '取消关注', target_delete_path(@target)

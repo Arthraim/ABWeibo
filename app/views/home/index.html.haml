@@ -4,10 +4,12 @@
   =@current_user.inspect
   :plain
     -->
-  =link_to '登出', '/sessions/destroy'
+  = link_to '登出', '/sessions/destroy'
   - if @current_user.target
     %div
       你已经关注了 #{link_to("http://weibo.com/u/#{@current_user.target.wb_uid}", "http://weibo.com/u/#{@current_user.target.wb_uid}", :target => '_blank')}
+      |
+      = link_to '取消关注', target_path(@target)
     %hr
     %div
       - @statuses.each do |status|

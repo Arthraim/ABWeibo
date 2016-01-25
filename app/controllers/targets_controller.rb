@@ -1,5 +1,5 @@
 class TargetsController < ApplicationController
-  before_action :set_target, only: [:show, :edit, :update, :destroy]
+  before_action :set_target, only: [:show, :edit, :update, :destroy, :delete]
 
   # GET /targets
   # GET /targets.json
@@ -20,6 +20,21 @@ class TargetsController < ApplicationController
 
   # GET /targets/1/edit
   def edit
+  end
+
+  # GET /targets/1/delete
+  def delete
+    if session[:login_user_id] != @target.user.wb_uid
+      respond_to do |format|
+        format.html { redirect_to root_path, notice: 'You cannot delete this target.' }
+      end
+      return
+    end
+    @target.destroy
+    respond_to do |format|
+      format.html { redirect_to root_path, notice: 'Target was successfully deleted.' }
+      format.json { head :no_content }
+    end
   end
 
   # POST /targets
@@ -73,7 +88,7 @@ class TargetsController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_target
-      @target = Target.find(params[:id])
+      @target = Target.find(params[:id]||params[:target_id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
