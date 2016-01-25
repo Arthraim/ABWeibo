@@ -8,6 +8,7 @@
   - if @current_user.target
     %div
       你已经关注了 #{link_to("http://weibo.com/u/#{@current_user.target.wb_uid}", "http://weibo.com/u/#{@current_user.target.wb_uid}", :target => '_blank')}
+    %hr
     %div
       - @statuses.each do |status|
         -#%p= status.inspect
