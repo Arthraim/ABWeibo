@@ -33,6 +33,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 # 3rd party services
 gem 'weibo_2' # https://github.com/simsicon/weibo_2
 
+# workers
+gem 'sidetiq'
+
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
