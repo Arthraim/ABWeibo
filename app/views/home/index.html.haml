@@ -8,6 +8,15 @@
   - if @current_user.target
     %div
       你已经关注了 #{link_to("http://weibo.com/u/#{@current_user.target.wb_uid}", "http://weibo.com/u/#{@current_user.target.wb_uid}", :target => '_blank')}
+    %div
+      - @statuses.each do |status|
+        %p= status.inspect
+        %p
+          = status.raw['text']
+          %br
+          - status.raw['pic_urls'].each do |pic_url|
+            = image_tag pic_url['thumbnail_pic']
+        %hr
   - else
     %div
       %p
