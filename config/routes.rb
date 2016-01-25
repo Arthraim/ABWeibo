@@ -10,6 +10,10 @@ Rails.application.routes.draw do
     get 'weibo_callback'
     get 'destroy'
   end
+
+  require 'sidekiq/web'
+  mount Sidekiq::Web => '/sidekiq'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

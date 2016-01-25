@@ -4,7 +4,7 @@ class FetchWeiboWorker
 
   recurrence { minutely }
 
-  def perform()
+  def perform
     target = Target.first
     client = WeiboOAuth2::Client.new
     client.access_token = WeiboOAuth2::AccessToken.new client, target.user.wb_token

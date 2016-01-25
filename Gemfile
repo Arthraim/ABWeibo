@@ -35,6 +35,7 @@ gem 'weibo_2' # https://github.com/simsicon/weibo_2
 
 # workers
 gem 'sidetiq'
+gem 'sinatra', :require => nil
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
