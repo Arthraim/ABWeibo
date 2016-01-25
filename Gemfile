@@ -38,7 +38,7 @@ gem 'sidetiq'
 gem 'sinatra', :require => nil
 
 # static files
-gem 'rails_12factor'
+gem 'rails_12factor' # can fix static files problem on dokku
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
