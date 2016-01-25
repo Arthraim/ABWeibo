@@ -24,7 +24,7 @@ class TargetsController < ApplicationController
 
   # GET /targets/1/delete
   def delete
-    if session[:login_user_id] != @target.user.wb_uid
+    if session[:login_user_id] != @target.user.id
       respond_to do |format|
         format.html { redirect_to root_path, notice: 'You cannot delete this target.' }
       end
