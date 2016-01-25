@@ -13,3 +13,11 @@
  *= require_tree .
  *= require_self
  */
+.retweet {
+    background-color: #eeeeee;
+    padding: 10px;
+    margin-left: 20px;
+}
+.weibo {
+    border-bottom: solid 1px #dddddd;
+}

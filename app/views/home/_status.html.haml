@@ -1,0 +1,13 @@
+- if status.present?
+  %p
+    = status['text']
+    %br
+    - status['pic_urls'].each do |pic_url|
+      = image_tag pic_url['thumbnail_pic']
+    - if status['retweeted_status']
+      .retweet
+        = render 'status', :status => status['retweeted_status']
+    %p
+      %small= status['created_at']
+- else
+  * 一条无效的微博, 找小狼投诉 *

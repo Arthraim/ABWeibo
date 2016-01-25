@@ -11,13 +11,8 @@
     %hr
     %div
       - @statuses.each do |status|
-        -#%p= status.inspect
-        %p
-          = status.raw['text']
-          %br
-          - status.raw['pic_urls'].each do |pic_url|
-            = image_tag pic_url['thumbnail_pic']
-        %hr
+        .weibo
+          = render 'status', :status => status.raw
   - else
     %div
       %p
