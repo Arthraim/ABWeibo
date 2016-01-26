@@ -1,6 +1,7 @@
 class FetchWeiboWorker
   include Sidekiq::Worker
   include Sidetiq::Schedulable
+  sidekiq_options :retry => 1
 
   recurrence { minutely }
 
